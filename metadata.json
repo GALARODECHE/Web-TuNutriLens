@@ -1,0 +1,6 @@
+{
+  "name": "TuNutriLens",
+  "description": "TuNutriLens - Web oficial de la app de nutrición inteligente con escaneo visual de ultra precisión y planes hiper-personalizados frente a la competencia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Space Mono', monospace, system-ui, sans-serif;
+  }
+
+  .font-bricolage {
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+
+  .font-mono-carrd {
+    font-family: 'Space Mono', monospace;
+  }
+}
