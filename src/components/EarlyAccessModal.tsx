@@ -49,10 +49,17 @@ export const EarlyAccessModal: React.FC<EarlyAccessModalProps> = ({ isOpen, onCl
 
         {!isSubmitted ? (
           <div className="space-y-6">
-            <div className="space-y-2 text-center sm:text-left">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EF9AA0] text-[#66363A] text-xs font-bold border border-[#2B2A23]">
-                <Smartphone className="w-3.5 h-3.5" />
-                <span>Acceso y Descarga Inmediata</span>
+            <div className="space-y-3 text-center sm:text-left">
+              <div className="flex items-center gap-3 justify-center sm:justify-start">
+                <img 
+                  src="/logo.svg?v=5" 
+                  alt="TuNutriLens Logo" 
+                  className="w-12 h-12 rounded-2xl border-2 border-[#2B2A23] shadow-[2px_2px_0px_#2B2A23]" 
+                />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EF9AA0] text-[#66363A] text-xs font-bold border border-[#2B2A23]">
+                  <Smartphone className="w-3.5 h-3.5" />
+                  <span>Acceso y Descarga Inmediata</span>
+                </div>
               </div>
 
               <h3 className="font-bricolage text-2xl sm:text-3xl font-bold text-[#2B2A23] tracking-[-0.05rem]">

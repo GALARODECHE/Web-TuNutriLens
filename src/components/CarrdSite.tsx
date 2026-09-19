@@ -15,7 +15,8 @@ import {
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
-  Apple
+  Apple,
+  Instagram
 } from 'lucide-react';
 
 interface CarrdSiteProps {
@@ -47,9 +48,14 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
       >
         
         {/* Top Header Bar */}
-        <div className="bg-[#2B2A23] text-white px-5 sm:px-8 py-4 flex flex-wrap items-center justify-between gap-3 border-b-[3px] border-[#2B2A23]">
-          <div className="flex items-center gap-2 text-left">
-            <span className="text-xl sm:text-2xl font-normal tracking-[-0.05rem] text-white">
+        <div className="bg-[#2B2A23] text-white px-5 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3 border-b-[3px] border-[#2B2A23]">
+          <div className="flex items-center gap-3 text-left">
+            <img 
+              src="/logo.svg?v=5" 
+              alt="TuNutriLens Icon" 
+              className="w-8 h-8 rounded-xl object-contain shadow-xs border border-white/20" 
+            />
+            <span className="text-xl sm:text-2xl font-normal tracking-[-0.05rem] text-white font-bricolage">
               TuNutriLens
             </span>
           </div>
@@ -74,18 +80,47 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
         {/* Card Body */}
         <div className="px-5 sm:px-12 py-8 sm:py-12 space-y-7 text-left sm:text-center">
 
-          {/* Circular Hero Image */}
-          <div className="flex justify-center">
-            <div className="w-[8.5rem] h-[8.5rem] rounded-full border-2 border-[#2B2A23] p-1.5 bg-white/40 shadow-xs overflow-hidden">
+          {/* Official App Logo Icon & IG/App Download Options */}
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-[8.5rem] h-[8.5rem] rounded-[2.2rem] border-2 border-[#2B2A23] p-1.5 bg-white/50 shadow-[4px_4px_0px_#2B2A23] overflow-hidden group hover:scale-105 transition-transform">
               <img
-                src="/carrd-hero.jpg"
-                alt="TuNutriLens Nutricionista"
-                className="w-full h-full object-cover rounded-full"
-                onError={(e) => {
-                  // Fallback to official logo if image load fails
-                  (e.target as HTMLImageElement).src = '/logo.svg';
-                }}
+                src="/tunutrilens-instagram-1080.png"
+                alt="TuNutriLens Logo Oficial"
+                className="w-full h-full object-cover rounded-[1.8rem]"
               />
+            </div>
+            
+            {/* Quick Download Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-2 max-w-md">
+              <a
+                href="/tunutrilens-instagram-1080.png"
+                download="TuNutriLens-Instagram-1080x1080.png"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2B2A23] bg-[#FFE0B2] hover:bg-[#FFD599] px-3 py-1.5 rounded-full border border-[#2B2A23] shadow-[2px_2px_0px_#2B2A23] transition-all hover:scale-105 cursor-pointer"
+                title="Descargar imagen PNG cuadrada en 1080x1080 ideal para perfil de Instagram"
+              >
+                <Instagram className="w-3.5 h-3.5" />
+                <span>Para Instagram (PNG 1080px)</span>
+              </a>
+
+              <a
+                href="/tunutrilens-app-icon-512.png"
+                download="TuNutriLens-App-Icon-512x512.png"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2B2A23] bg-[#C8E6C9] hover:bg-[#B9DFBA] px-3 py-1.5 rounded-full border border-[#2B2A23] shadow-[2px_2px_0px_#2B2A23] transition-all hover:scale-105 cursor-pointer"
+                title="Descargar icono estándar de 512x512 para la propia app móvil / PWA"
+              >
+                <Smartphone className="w-3.5 h-3.5" />
+                <span>Para la App (PNG 512px)</span>
+              </a>
+
+              <a
+                href="/logo.svg?v=5"
+                download="TuNutriLens-Logo-Vectorial.svg"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-[#2B2A23]/80 hover:text-[#2B2A23] bg-white/70 hover:bg-white px-2.5 py-1.5 rounded-full border border-[#2B2A23]/30 transition-all hover:scale-105 cursor-pointer"
+                title="Descargar vector original SVG sin pérdida de calidad"
+              >
+                <Download className="w-3 h-3" />
+                <span>Vector SVG</span>
+              </a>
             </div>
           </div>
 

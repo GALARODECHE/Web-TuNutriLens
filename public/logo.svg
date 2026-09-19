@@ -1,130 +1,158 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
-    <!-- Background Squircle Gradient -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#24b67d" />
-      <stop offset="45%" stop-color="#12875b" />
-      <stop offset="100%" stop-color="#074830" />
+    <!-- Background Squircle Gradient matching uploaded icon -->
+    <linearGradient id="bgIconGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a9154" />
+      <stop offset="40%" stop-color="#1e7b44" />
+      <stop offset="100%" stop-color="#10572d" />
     </linearGradient>
 
-    <!-- Outer Glow / Rim Gradient -->
-    <radialGradient id="lensGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="60%" stop-color="#158052" />
-      <stop offset="90%" stop-color="#0a462c" />
-      <stop offset="100%" stop-color="#052718" />
+    <!-- Circular Badge Outer Shadow / Glow -->
+    <radialGradient id="outerPlateGrad" cx="50%" cy="38%" r="62%">
+      <stop offset="0%" stop-color="#46af69" />
+      <stop offset="65%" stop-color="#228547" />
+      <stop offset="100%" stop-color="#0f5027" />
     </radialGradient>
 
-    <!-- Metallic Optical White Ring Gradient -->
-    <linearGradient id="opticRingGrad" x1="20%" y1="0%" x2="80%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="35%" stop-color="#d4efe2" />
-      <stop offset="70%" stop-color="#80cba6" />
-      <stop offset="100%" stop-color="#ffffff" />
+    <!-- Outer Rim Metallic Chamfer -->
+    <linearGradient id="rimChamfer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7be69e" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#1b723d" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#093d1d" stop-opacity="0.9" />
     </linearGradient>
 
-    <!-- Leaf Gradient -->
-    <linearGradient id="leafGrad" x1="10%" y1="0%" x2="90%" y2="100%">
-      <stop offset="0%" stop-color="#69df8b" />
-      <stop offset="50%" stop-color="#30b865" />
-      <stop offset="100%" stop-color="#157c3e" />
+    <!-- Stepped Concentric Vortex Lens Rings (Natural Green Tones, No Harsh White) -->
+    <linearGradient id="ringLight" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#a6eec1" />
+      <stop offset="35%" stop-color="#72d698" />
+      <stop offset="70%" stop-color="#349d5c" />
+      <stop offset="100%" stop-color="#1b6338" />
     </linearGradient>
 
-    <!-- Pupil Glass Gradient -->
-    <radialGradient id="pupilGrad" cx="42%" cy="40%" r="55%">
-      <stop offset="0%" stop-color="#166044" />
-      <stop offset="45%" stop-color="#0c3d2a" />
-      <stop offset="85%" stop-color="#051f15" />
-      <stop offset="100%" stop-color="#02110b" />
+    <linearGradient id="ringMid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#329e58" />
+      <stop offset="50%" stop-color="#1d6c38" />
+      <stop offset="100%" stop-color="#0c3c1e" />
+    </linearGradient>
+
+    <!-- Center Sensor Glass / Pupil Gradient -->
+    <radialGradient id="sensorGlass" cx="42%" cy="40%" r="58%">
+      <stop offset="0%" stop-color="#1b5c3d" />
+      <stop offset="45%" stop-color="#0c3521" />
+      <stop offset="85%" stop-color="#041a10" />
+      <stop offset="100%" stop-color="#010c07" />
     </radialGradient>
 
-    <!-- Gold Sparkle Gradient -->
-    <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffd56b" />
-      <stop offset="60%" stop-color="#f59e0b" />
+    <!-- Fresh Leaf Foliage Gradient (Organic, soft tonal shading) -->
+    <linearGradient id="leafBodyGrad" x1="20%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#8ceba9" />
+      <stop offset="30%" stop-color="#49ca72" />
+      <stop offset="70%" stop-color="#24964c" />
+      <stop offset="100%" stop-color="#135f2d" />
+    </linearGradient>
+
+    <!-- Gold Sparkles -->
+    <linearGradient id="goldStar" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe685" />
+      <stop offset="50%" stop-color="#f59e0b" />
       <stop offset="100%" stop-color="#d97706" />
     </linearGradient>
 
-    <!-- Curved path for TUNUTRILENS text -->
-    <!-- Center is (256, 252), radius approx 162 -->
-    <path id="textPathBottom" d="M 108 266 A 162 162 0 0 0 404 266" />
+    <!-- Curved Text Path for TUNUTRILENS -->
+    <path id="textArc" d="M 124 286 A 148 148 0 0 0 388 286" />
   </defs>
 
-  <!-- App Icon Squircle Container -->
-  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <!-- Squircle App Icon Base with rounded corners -->
+  <rect width="512" height="512" rx="114" fill="url(#bgIconGrad)" />
 
-  <!-- Top Right Sparkles & Magic Dots -->
-  <g opacity="0.95">
-    <!-- Starburst 4-point -->
-    <path d="M 352 154 Q 352 134 358 128 Q 352 122 352 102 Q 352 122 346 128 Q 352 134 352 154 Z" fill="url(#sparkleGrad)" />
-    <path d="M 326 128 Q 346 128 352 122 Q 358 128 378 128 Q 358 128 352 134 Q 346 128 326 128 Z" fill="url(#sparkleGrad)" />
-    <!-- Secondary tiny sparkle -->
-    <path d="M 386 172 Q 386 160 389 157 Q 386 154 386 142 Q 386 154 383 157 Q 386 160 386 172 Z" fill="#ffd56b" opacity="0.8" />
-    <!-- Ambient glowing dots -->
-    <circle cx="322" cy="118" r="4.5" fill="#ffd56b" />
-    <circle cx="372" cy="126" r="4" fill="#ffd56b" />
-    <circle cx="384" cy="190" r="3.5" fill="#ffd56b" />
-    <circle cx="316" cy="138" r="3" fill="#f59e0b" />
+  <!-- Inner Elevated Disc (Circular badge with soft drop shadow) -->
+  <circle cx="256" cy="254" r="212" fill="#083a1c" opacity="0.45" />
+  <circle cx="256" cy="250" r="212" fill="url(#outerPlateGrad)" />
+  <circle cx="256" cy="250" r="212" fill="none" stroke="url(#rimChamfer)" stroke-width="6" />
+
+  <!-- Top Right Sparkle & Magic Lens Flairs -->
+  <g>
+    <!-- Curved gold flair arc -->
+    <path d="M 302 142 C 342 144 374 164 394 220" fill="none" stroke="url(#goldStar)" stroke-width="4.5" stroke-linecap="round" opacity="0.9" />
+    
+    <!-- Primary 4-pointed golden sparkle -->
+    <path d="M 364 164 Q 364 146 370 140 Q 364 134 364 116 Q 364 134 358 140 Q 364 146 364 164 Z" fill="url(#goldStar)" />
+    <path d="M 340 140 Q 358 140 364 134 Q 370 140 388 140 Q 370 140 364 146 Q 358 140 340 140 Z" fill="url(#goldStar)" />
+    <circle cx="364" cy="140" r="3.5" fill="#ffffff" />
+
+    <!-- Secondary small sparkle -->
+    <path d="M 396 178 Q 396 168 400 164 Q 396 160 396 150 Q 396 160 392 164 Q 396 168 396 178 Z" fill="#ffd766" opacity="0.85" />
+    <path d="M 382 164 Q 392 164 396 160 Q 400 164 410 164 Q 400 164 396 168 Q 392 164 382 164 Z" fill="#ffd766" opacity="0.85" />
+
+    <!-- Ambient twinkle dots -->
+    <circle cx="328" cy="128" r="3.5" fill="#ffd766" />
+    <circle cx="390" cy="138" r="3" fill="#ffd766" />
   </g>
 
-  <!-- Central Camera Lens / Aperture Group -->
-  <g transform="translate(0, -6)">
+  <!-- Concentric Camera Lens Structure (Smooth green shaded rings, no white stripes) -->
+  <g id="camera-lens">
+    <!-- Deepest outer ring trough -->
+    <circle cx="258" cy="246" r="126" fill="#0c4222" stroke="#1b6336" stroke-width="6" />
+
+    <!-- Swirling vortex grooves with organic green transitions -->
+    <circle cx="258" cy="246" r="114" fill="none" stroke="url(#ringMid)" stroke-width="12" />
+    <circle cx="258" cy="246" r="102" fill="none" stroke="#25894b" stroke-width="8" />
+    <circle cx="258" cy="246" r="92" fill="none" stroke="url(#ringLight)" stroke-width="14" />
     
-    <!-- White outer perimeter contour of the lens emblem -->
-    <circle cx="256" cy="254" r="132" fill="none" stroke="#ffffff" stroke-width="12" />
+    <!-- Inner emerald steps -->
+    <circle cx="258" cy="246" r="74" fill="none" stroke="#165d33" stroke-width="10" />
+    <circle cx="258" cy="246" r="62" fill="none" stroke="#32a760" stroke-width="6" opacity="0.8" />
     
-    <!-- Outer Dark Forest Ring -->
-    <circle cx="256" cy="254" r="126" fill="url(#lensGlow)" />
+    <!-- Central sensor pupil (dark camera optics) -->
+    <circle cx="258" cy="246" r="54" fill="url(#sensorGlass)" />
+    <circle cx="258" cy="246" r="54" fill="none" stroke="#0e3d23" stroke-width="4" />
+    
+    <!-- Aperture inner circle reflection -->
+    <circle cx="258" cy="246" r="36" fill="none" stroke="#2db163" stroke-width="2.5" opacity="0.5" />
+    <circle cx="258" cy="246" r="22" fill="#041a10" />
 
-    <!-- Optical White / Mint Beveled Ring -->
-    <circle cx="256" cy="254" r="102" fill="none" stroke="url(#opticRingGrad)" stroke-width="26" />
-    <circle cx="256" cy="254" r="115" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.6" />
+    <!-- Soft Glass Highlights -->
+    <ellipse cx="242" cy="226" rx="12" ry="7" transform="rotate(-35 242 226)" fill="#ffffff" opacity="0.5" />
+    <circle cx="254" cy="242" r="3" fill="#ffffff" opacity="0.4" />
+  </g>
 
-    <!-- Middle Stepped Emerald Ring -->
-    <circle cx="256" cy="254" r="82" fill="none" stroke="#12704b" stroke-width="14" />
-    <circle cx="256" cy="254" r="75" fill="none" stroke="#25a873" stroke-width="4" opacity="0.8" />
+  <!-- Botanical Leaf Element (Clean, organic green leaf with subtle tone-on-tone veins, NO white stripes) -->
+  <g id="botanical-leaf">
+    <!-- Main Leaf Body Gradient with subtle darker border -->
+    <path d="M 274 135 C 222 140 176 172 154 218 C 134 260 140 306 172 340 C 204 374 256 384 300 368 C 252 374 200 354 176 320 C 152 288 150 252 166 220 C 186 180 234 148 274 135 Z"
+      fill="url(#leafBodyGrad)" stroke="#115528" stroke-width="2" />
 
-    <!-- Center Pupil (The "Eye / Sensor") -->
-    <circle cx="256" cy="254" r="68" fill="url(#pupilGrad)" />
+    <!-- Upright Leaf Blade Tip (Vertical leaf curling upwards) -->
+    <path d="M 276 137 C 262 106 232 72 192 82 C 158 92 142 128 144 166 C 146 208 170 246 206 266 C 178 242 162 210 162 174 C 162 140 176 112 204 104 C 234 94 258 120 276 137 Z"
+      fill="url(#leafBodyGrad)" stroke="#115528" stroke-width="2" />
 
-    <!-- Aperture diaphragm ring texture -->
-    <circle cx="256" cy="254" r="54" fill="none" stroke="#0e4b34" stroke-width="6" opacity="0.7" />
+    <!-- Subtle, soft organic mint veins (smooth tonal integration, no white) -->
+    <path d="M 270 138 C 232 136 188 160 164 196 C 146 224 142 260 156 294"
+      fill="none" stroke="#a7f3d0" stroke-width="3" stroke-linecap="round" opacity="0.45" />
+    <path d="M 194 88 C 180 118 174 152 178 190"
+      fill="none" stroke="#a7f3d0" stroke-width="3" stroke-linecap="round" opacity="0.45" />
+    
+    <!-- Gentle lateral veins -->
+    <path d="M 198 120 C 208 130 220 136 234 138" fill="none" stroke="#a7f3d0" stroke-width="1.8" stroke-linecap="round" opacity="0.35" />
+    <path d="M 184 146 C 196 156 210 160 226 160" fill="none" stroke="#a7f3d0" stroke-width="1.8" stroke-linecap="round" opacity="0.35" />
+    <path d="M 174 176 C 188 184 200 186 214 184" fill="none" stroke="#a7f3d0" stroke-width="1.8" stroke-linecap="round" opacity="0.35" />
+    <path d="M 166 210 C 180 216 194 216 206 212" fill="none" stroke="#a7f3d0" stroke-width="1.8" stroke-linecap="round" opacity="0.35" />
+  </g>
 
-    <!-- Camera Lens Specular Highlights (Photorealistic reflections) -->
-    <!-- Main soft white highlight on pupil -->
-    <ellipse cx="236" cy="232" rx="14" ry="10" transform="rotate(-30 236 232)" fill="#ffffff" opacity="0.85" />
-    <!-- Secondary tiny crisp pin-point reflection -->
-    <circle cx="252" cy="250" r="5" fill="#ffffff" opacity="0.5" />
-    <!-- Subtle crescent bottom reflection on glass -->
-    <path d="M 230 286 A 48 48 0 0 0 282 284" fill="none" stroke="#5eead4" stroke-width="3.5" stroke-linecap="round" opacity="0.4" />
+  <!-- Bottom Arch Typography: TUNUTRILENS in Bold Crisp Pure White -->
+  <text font-family="'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-weight="900"
+        font-size="33"
+        fill="#ffffff"
+        letter-spacing="5">
+    <textPath href="#textArc" startOffset="50%" text-anchor="middle">
+      TUNUTRILENS
+    </textPath>
+  </text>
 
-    <!-- Botanical Leaf wrapping around the left side -->
-    <g>
-      <!-- White outer contour of leaf for crisp contrast -->
-      <path d="M 276 142 C 230 148 180 178 160 216 C 142 250 146 294 174 326 C 202 358 248 372 290 356 C 248 360 200 344 178 314 C 158 286 156 250 172 220 C 190 186 236 154 276 142 Z"
-        fill="#ffffff" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
-
-      <!-- Main Leaf Body -->
-      <path d="M 274 144 C 218 152 170 188 152 232 C 140 262 144 296 166 322 C 190 348 230 360 268 350 C 230 352 190 338 172 312 C 154 286 152 254 166 226 C 182 192 228 158 274 144 Z"
-        fill="url(#leafGrad)" />
-
-      <!-- Standing Upper Leaf Blade -->
-      <path d="M 274 144 C 262 120 236 86 198 96 C 166 104 148 136 148 172 C 148 214 172 248 206 266 C 178 244 162 216 162 180 C 162 148 176 122 202 114 C 232 104 256 128 274 144 Z"
-        fill="#ffffff" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
-      <path d="M 272 144 C 260 122 234 88 198 98 C 168 106 152 136 152 170 C 152 210 174 242 206 262 C 180 240 166 212 166 178 C 166 148 180 124 204 116 C 232 108 254 130 272 144 Z"
-        fill="url(#leafGrad)" />
-
-      <!-- Leaf Central Vein (Graceful white curve) -->
-      <path d="M 268 144 C 234 140 196 158 174 190 C 158 214 154 246 164 274"
-        fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" />
-      <path d="M 198 102 C 186 128 180 156 182 188"
-        fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" opacity="0.9" />
-    </g>
-
-    <!-- Curved Text: TUNUTRILENS -->
-    <text font-family="'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#ffffff" letter-spacing="4">
-      <textPath href="#textPathBottom" startOffset="50%" text-anchor="middle">
-        TUNUTRILENS
-      </textPath>
-    </text>
+  <!-- Elegant Organic White Rubric (Trazo blanco más grueso y orgánico que rubrica el nombre) -->
+  <g id="brand-rubric">
+    <path d="M 116 296 C 144 350 196 388 256 388 C 316 388 368 350 396 296 C 399 301 397 308 390 314 C 360 361 312 379 256 379 C 200 379 152 361 122 314 C 115 308 113 301 116 296 Z"
+          fill="#ffffff" />
   </g>
 </svg>
