@@ -17,6 +17,7 @@ import {
   CheckCircle2,
   Apple
 } from 'lucide-react';
+import { MarketAuditSection } from './MarketAuditSection';
 
 interface CarrdSiteProps {
   onOpenDownload: () => void;
@@ -219,52 +220,31 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
             />
           </div>
 
-          {/* Toggleable Comparison Section: "Por qué somos superiores a la competencia" */}
+          {/* Toggleable Comparison Section: Auditoría Competitiva Oficial 2026 */}
           <div className="space-y-4">
             <button
+              type="button"
               onClick={() => setShowComparison(!showComparison)}
-              className="w-full py-3 px-4 rounded-xl bg-white/80 hover:bg-white border-2 border-[#2B2A23] text-xs sm:text-sm font-bold text-[#2B2A23] flex items-center justify-between transition-colors shadow-xs cursor-pointer"
+              className="w-full py-3.5 px-4 rounded-xl bg-white/90 hover:bg-white border-2 border-[#2B2A23] text-xs sm:text-sm font-bold text-[#2B2A23] flex items-center justify-between transition-all shadow-[2px_2px_0px_#2B2A23] cursor-pointer hover:shadow-[3px_3px_0px_#2B2A23]"
             >
-              <span>{showComparison ? '▼ Ocultar comparativa con la competencia' : '▶ Ver comparativa: Por qué TuNutriLens supera a otras apps'}</span>
-              <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 text-xs font-bold">
-                Precisión + Personalización
+              <div className="flex items-center gap-2 text-left">
+                <span className="text-[#096121]">
+                  {showComparison ? '▼' : '▶'}
+                </span>
+                <span>
+                  {showComparison 
+                    ? 'Ocultar auditoría comparativa con el mercado' 
+                    : 'Ver comparativa: TuNutriLens™ frente a MyFitnessPal, Yuka, Cal AI y MyRealFood'}
+                </span>
+              </div>
+              <span className="shrink-0 px-2.5 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-xs font-black">
+                10/10 vs Mercado
               </span>
             </button>
 
             {showComparison && (
-              <div className="p-4 sm:p-6 rounded-2xl bg-white/90 border-2 border-[#2B2A23] text-left space-y-4 animate-in fade-in duration-200">
-                <h3 className="text-sm font-bold text-[#2B2A23] uppercase tracking-wider">
-                  TuNutriLens vs. Apps Tradicionales
-                </h3>
-                
-                <div className="space-y-3 text-xs sm:text-sm">
-                  <div className="p-3 rounded-xl bg-emerald-50/90 border border-emerald-300">
-                    <p className="font-bold text-emerald-900 mb-1">
-                      📸 Precisión de Escaneo (97.8% vs 64%)
-                    </p>
-                    <p className="text-emerald-800 leading-relaxed">
-                      Mientras otras apps solo buscan códigos de barras o adivinan calorías sin calcular salsas ni aceites, TuNutriLens estima el volumen y los ingredientes ocultos con precisión milimétrica.
-                    </p>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-emerald-50/90 border border-emerald-300">
-                    <p className="font-bold text-emerald-900 mb-1">
-                      🌾 Personalización Clínica vs. Dietas Genéricas
-                    </p>
-                    <p className="text-emerald-800 leading-relaxed">
-                      Creada por Gala Rodríguez (Univ. de Navarra): sin números rígidos que generen obsesión ni fórmulas automáticas genéricas. Planes reales adaptados a celiaquía, digestión y objetivos reales.
-                    </p>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-slate-100 border border-slate-300">
-                    <p className="font-bold text-slate-800 mb-1">
-                      🧊 Aprovechamiento de Nevera
-                    </p>
-                    <p className="text-slate-600 leading-relaxed">
-                      Ninguna de las apps líderes (MyFitnessPal, Yuka, Lose It) te ayuda a crear recetas saludables fotografiando los ingredientes sueltos de tu frigorífico.
-                    </p>
-                  </div>
-                </div>
+              <div className="animate-in fade-in duration-200">
+                <MarketAuditSection onOpenDownload={onOpenDownload} />
               </div>
             )}
           </div>
