@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Waitlist Leads collection
+    // Any visitor can submit their priority access request (create)
+    // Only authorized reads or administrative exports
+    match /waitlist_leads/{leadId} {
+      allow create: if request.resource.data.email is string 
+                    && request.resource.data.email.size() > 3
+                    && request.resource.data.fullName is string
+                    && request.resource.data.accessCode is string;
+      // Only writing/submitting leads is allowed publicly.
+      // Reading, updating or deleting from the client is blocked for maximum privacy.
+      allow read: if false;
+      allow update, delete: if false;
+    }
+  }
+}

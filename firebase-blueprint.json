@@ -1,0 +1,54 @@
+{
+  "entities": {
+    "WaitlistLead": {
+      "title": "Waitlist Lead",
+      "description": "User requesting early access and priority app download code",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "Full name of the user"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Contact email address"
+        },
+        "platform": {
+          "type": "string",
+          "enum": ["ios", "android", "both"],
+          "description": "Device platform requested"
+        },
+        "mainGoal": {
+          "type": "string",
+          "description": "Main nutrition or health goal"
+        },
+        "accessCode": {
+          "type": "string",
+          "description": "Unique early access code (e.g. TNL-938894)"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the lead was submitted"
+        },
+        "emailStatus": {
+          "type": "string",
+          "enum": ["queued", "sent", "pending_batch"],
+          "description": "Status of the welcome/confirmation email dispatch"
+        },
+        "source": {
+          "type": "string",
+          "description": "Page or modal where the user signed up"
+        }
+      },
+      "required": ["fullName", "email", "platform", "accessCode", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/waitlist_leads/{leadId}": {
+      "schema": "WaitlistLead",
+      "description": "Collection of waitlist leads for priority launch notifications"
+    }
+  }
+}

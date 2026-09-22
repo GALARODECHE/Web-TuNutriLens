@@ -1,0 +1,14 @@
+export const firebaseConfig = {
+  projectId: "studied-operator-kx4wp",
+  appId: "1:521869784492:web:e4a2060d4023462a847609",
+  apiKey: "AIzaSyCnWhEJKXf5L_KBX4iDz4zr47s9MgxXTZo",
+  authDomain: "studied-operator-kx4wp.firebaseapp.com",
+  firestoreDatabaseId: "ai-studio-tunutrilens-f6992727-a147-4823-9886-00fb05ac959b",
+  storageBucket: "studied-operator-kx4wp.firebasestorage.app",
+  messagingSenderId: "521869784492",
+  measurementId: "",
+  oAuthClientId: "521869784492-jd84grf6vh4jm8g4sjbnri7jckk4j1d2.apps.googleusercontent.com",
+  recaptchaSiteKey: ""
+};
+
+export default firebaseConfig;

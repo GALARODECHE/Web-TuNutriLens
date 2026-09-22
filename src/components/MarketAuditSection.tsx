@@ -84,18 +84,18 @@ export const MarketAuditSection: React.FC<MarketAuditSectionProps> = ({ onOpenDo
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EF9AA0] text-[#2B2A23] text-xs font-black tracking-wide uppercase">
             <Scale className="w-3.5 h-3.5" />
-            <span>Auditoría Competitiva Oficial 2026</span>
+            <span>Comparativa de Funcionalidades (2026)</span>
           </div>
           <span className="text-xs text-white/70 font-mono-carrd">
-            Datos Verificados • BEDCA / EFSA / RGPD
+            Fuentes Públicas Verificadas • BEDCA / EFSA / RGPD
           </span>
         </div>
 
         <h3 className="text-lg sm:text-xl font-bold font-bricolage tracking-tight text-white pt-1">
-          TuNutriLens™ frente al Mercado de Nutrición Digital
+          TuNutriLens™ frente a Soluciones del Mercado
         </h3>
         <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
-          Análisis comparativo exhaustivo frente a <strong className="text-white">MyFitnessPal</strong>, <strong className="text-white">Yuka</strong>, <strong className="text-white">Cal AI</strong> y <strong className="text-white">MyRealFood</strong> en 9 dimensiones críticas.
+          Comparación informativa de características técnicas frente a MyFitnessPal, Yuka, Cal AI y MyRealFood en base a sus versiones públicas actuales.
         </p>
       </div>
 
@@ -449,21 +449,26 @@ export const MarketAuditSection: React.FC<MarketAuditSectionProps> = ({ onOpenDo
       )}
 
       {/* Compliance and Audit Certification Footer */}
-      <div className="p-3.5 rounded-xl bg-stone-100/90 border border-[#2B2A23]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-[#2B2A23]/80">
-        <div className="flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-[#096121] shrink-0" />
-          <span>{KEY_THESIS.source}</span>
+      <div className="p-3.5 rounded-xl bg-stone-100/90 border border-[#2B2A23]/20 space-y-2 text-[11px] text-[#2B2A23]/80">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-[#096121] shrink-0" />
+            <span>{KEY_THESIS.source}</span>
+          </div>
+          {onOpenDownload && (
+            <button
+              type="button"
+              onClick={onOpenDownload}
+              className="inline-flex items-center gap-1 font-bold text-[#096121] hover:underline cursor-pointer"
+            >
+              <span>Disponible Próximamente</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          )}
         </div>
-        {onOpenDownload && (
-          <button
-            type="button"
-            onClick={onOpenDownload}
-            className="inline-flex items-center gap-1 font-bold text-[#096121] hover:underline cursor-pointer"
-          >
-            <span>Probar TuNutriLens Gratis</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        )}
+        <p className="text-[10px] text-stone-500 leading-normal border-t border-stone-200 pt-2">
+          <strong>Aviso legal sobre marcas y comparativa:</strong> Las marcas MyFitnessPal, Yuka, Cal AI y MyRealFood son propiedad exclusiva de sus respectivos titulares. Se mencionan de forma puramente descriptiva e informativa conforme a la Directiva Europea 2006/114/CE sobre publicidad comparativa y la Ley de Competencia Desleal española (Art. 10), con el único fin de comparar características objetivas y verificables de sus servicios públicos a fecha de 2026. TuNutriLens no guarda afiliación, patrocinio ni relación societaria con ninguna de ellas.
+        </p>
       </div>
 
       {/* Full Expanded Modal */}

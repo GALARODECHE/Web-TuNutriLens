@@ -15,16 +15,42 @@ import {
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
-  Apple
+  Apple,
+  BookOpen
 } from 'lucide-react';
 import { MarketAuditSection } from './MarketAuditSection';
+import { AppScreensShowcase } from './AppScreensShowcase';
+import { ScientificReferencesSection } from './ScientificReferencesSection';
 
 interface CarrdSiteProps {
-  onOpenDownload: () => void;
+  onOpenDownload?: () => void;
 }
 
 export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
   const [showComparison, setShowComparison] = useState(false);
+  const [showReferences, setShowReferences] = useState(true);
+  const [activeNotice, setActiveNotice] = useState<string | null>(null);
+  const [showToast, setShowToast] = useState(false);
+
+  const handleShowSoon = (sourceKey?: string) => {
+    if (sourceKey) {
+      setActiveNotice(sourceKey);
+      setTimeout(() => setActiveNotice(null), 2500);
+    }
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3500);
+    if (onOpenDownload) {
+      onOpenDownload();
+    }
+  };
+
+  const scrollToReferences = () => {
+    setShowReferences(true);
+    const element = document.getElementById('fuentes-cientificas');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="min-h-screen py-6 sm:py-12 px-3 sm:px-6 flex flex-col items-center justify-center font-mono-carrd text-[#2B2A23] relative">
@@ -68,11 +94,12 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
               Contacto
             </a>
             <button
-              onClick={onOpenDownload}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-[1.125rem] bg-emerald-500 hover:bg-emerald-400 text-white transition-colors text-sm font-bold tracking-[-0.05rem] cursor-pointer"
+              type="button"
+              onClick={() => handleShowSoon('header')}
+              className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-[1.125rem] bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white transition-all text-sm font-bold tracking-[-0.05rem] cursor-pointer shadow-xs"
             >
-              <Download className="w-3.5 h-3.5" />
-              <span>Descargar</span>
+              <Sparkles className="w-3.5 h-3.5 text-emerald-200" />
+              <span>{activeNotice === 'header' ? '¡Próximamente!' : 'Próximamente'}</span>
             </button>
           </div>
         </div>
@@ -102,18 +129,28 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
           </p>
 
           {/* Creator Badge: Gala Rodríguez Echebarrieta */}
-          <div className="max-w-md mx-auto p-3.5 rounded-2xl bg-white/60 border-2 border-[#2B2A23]/30 flex items-center gap-3 text-left shadow-xs">
-            <div className="w-10 h-10 rounded-xl bg-emerald-700 text-white flex items-center justify-center shrink-0 border border-[#2B2A23]">
-              <Award className="w-5 h-5" />
+          <div className="max-w-md mx-auto p-3.5 rounded-2xl bg-white/60 border-2 border-[#2B2A23]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left shadow-xs">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-emerald-700 text-white flex items-center justify-center shrink-0 border border-[#2B2A23]">
+                <Award className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-[#2B2A23] leading-tight">
+                  Creada por Gala Rodríguez Echebarrieta
+                </p>
+                <p className="text-[11px] text-[#2B2A23]/80 leading-tight">
+                  Diplomada en Nutrición Humana y Dietética • Universidad de Navarra
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="text-xs font-bold text-[#2B2A23] leading-tight">
-                Creada por Gala Rodríguez Echebarrieta
-              </p>
-              <p className="text-[11px] text-[#2B2A23]/80 leading-tight">
-                Diplomada en Nutrición Humana y Dietética • Universidad de Navarra
-              </p>
-            </div>
+            <button
+              type="button"
+              onClick={scrollToReferences}
+              className="text-[11px] font-bold text-[#096121] hover:underline bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-300 flex items-center gap-1 cursor-pointer shrink-0"
+            >
+              <BookOpen className="w-3 h-3" />
+              <span>Bases Científicas</span>
+            </button>
           </div>
 
           {/* High-Conversion Download Call-to-Action */}
@@ -121,25 +158,27 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
             <div className="inline-block w-full max-w-md p-5 rounded-2xl bg-[#2B2A23] text-white shadow-md border-2 border-[#2B2A23]">
               <div className="flex items-center justify-center gap-1.5 text-xs text-emerald-400 font-bold mb-2 uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Disponible para iOS y Android</span>
+                <span>Disponible Próximamente</span>
               </div>
               <p className="text-sm font-normal text-slate-200 mb-4 leading-snug">
-                Instala TuNutriLens ahora y empieza a escanear tus platos en 1 segundo.
+                TuNutriLens estará disponible próximamente en las tiendas oficiales.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5">
                 <button
-                  onClick={onOpenDownload}
-                  className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all hover:scale-[1.02] cursor-pointer"
+                  type="button"
+                  onClick={() => handleShowSoon('ios')}
+                  className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:scale-95 text-slate-950 font-bold text-sm transition-all hover:scale-[1.02] cursor-pointer shadow-xs"
                 >
-                  <Apple className="w-4 h-4" />
-                  <span>Para iPhone (iOS)</span>
+                  <Apple className="w-4 h-4 shrink-0" />
+                  <span>{activeNotice === 'ios' ? '¡Próximamente!' : 'App Store • Próximamente'}</span>
                 </button>
                 <button
-                  onClick={onOpenDownload}
-                  className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-white/20 hover:bg-white/30 text-white font-bold text-sm transition-all hover:scale-[1.02] border border-white/30 cursor-pointer"
+                  type="button"
+                  onClick={() => handleShowSoon('android')}
+                  className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/20 hover:bg-white/30 active:scale-95 text-white font-bold text-sm transition-all hover:scale-[1.02] border border-white/30 cursor-pointer shadow-xs"
                 >
-                  <Smartphone className="w-4 h-4" />
-                  <span>Para Android</span>
+                  <Smartphone className="w-4 h-4 shrink-0" />
+                  <span>{activeNotice === 'android' ? '¡Próximamente!' : 'Google Play • Próximamente'}</span>
                 </button>
               </div>
             </div>
@@ -207,6 +246,9 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
             </div>
           </div>
 
+          {/* New Section: Capturas Reales de la Interfaz de la App */}
+          <AppScreensShowcase onOpenDownload={() => handleShowSoon('screen-demo')} />
+
           {/* Wavy Divider (Exact Carrd Asset) */}
           <div className="py-2 flex justify-center">
             <div 
@@ -244,21 +286,74 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
 
             {showComparison && (
               <div className="animate-in fade-in duration-200">
-                <MarketAuditSection onOpenDownload={onOpenDownload} />
+                <MarketAuditSection onOpenDownload={() => handleShowSoon('market-audit')} />
+              </div>
+            )}
+          </div>
+
+          {/* Scientific Sources & Clinical Guidelines Section (100% Auditado) */}
+          <div id="fuentes-cientificas" className="space-y-4 scroll-mt-6">
+            <button
+              type="button"
+              onClick={() => setShowReferences(!showReferences)}
+              className="w-full py-3.5 px-4 rounded-xl bg-white/90 hover:bg-white border-2 border-[#2B2A23] text-xs sm:text-sm font-bold text-[#2B2A23] flex items-center justify-between transition-all shadow-[2px_2px_0px_#2B2A23] cursor-pointer hover:shadow-[3px_3px_0px_#2B2A23]"
+            >
+              <div className="flex items-center gap-2 text-left">
+                <span className="text-[#096121]">
+                  {showReferences ? '▼' : '▶'}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <BookOpen className="w-4 h-4 text-[#096121]" />
+                  <span>
+                    {showReferences 
+                      ? 'Ocultar Fuentes Científicas y Referencias Oficiales' 
+                      : 'Ver Fuentes Científicas y Referencias Oficiales (100% Auditado)'}
+                  </span>
+                </span>
+              </div>
+              <span className="shrink-0 px-2.5 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-xs font-bold">
+                100% Dominio Público
+              </span>
+            </button>
+
+            {showReferences && (
+              <div className="animate-in fade-in duration-200">
+                <ScientificReferencesSection />
               </div>
             )}
           </div>
 
           {/* Bottom Download and Contact Callout */}
-          <div className="pt-2 pb-2 text-center space-y-4">
-            <button
-              onClick={onOpenDownload}
-              className="inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-2xl bg-[#EF9AA0] hover:bg-[#eb888f] text-[#66363A] font-bold text-base border-2 border-[#2B2A23] shadow-[4px_4px_0px_#2B2A23] transition-all hover:translate-x-[1px] hover:translate-y-[1px] cursor-pointer"
-            >
-              <Smartphone className="w-5 h-5" />
-              <span>Descargar la App Ahora</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+          <div className="pt-2 pb-2 text-center space-y-3.5">
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={() => handleShowSoon('bottom-badge')}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-100/90 text-emerald-900 border border-emerald-300 text-xs font-bold hover:bg-emerald-200 active:scale-95 transition-all cursor-pointer shadow-2xs"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-[#096121]" />
+                <span>{activeNotice === 'bottom-badge' ? '¡Próximamente!' : 'Disponible Próximamente en App Store y Google Play'}</span>
+              </button>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={() => handleShowSoon('bottom-main')}
+                className="inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-2xl bg-[#EF9AA0] hover:bg-[#eb888f] active:scale-95 text-[#66363A] font-bold text-base border-2 border-[#2B2A23] shadow-[4px_4px_0px_#2B2A23] transition-all hover:translate-x-[1px] hover:translate-y-[1px] cursor-pointer"
+              >
+                <Smartphone className="w-5 h-5" />
+                <span>{activeNotice === 'bottom-main' ? '¡Próximamente!' : 'Descargar TuNutriLens'}</span>
+                <span className="text-[11px] uppercase bg-[#2B2A23] text-white px-2 py-0.5 rounded-md font-bold tracking-wide">
+                  Próximamente
+                </span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            <p className="text-xs text-[#2B2A23]/80 font-mono-carrd">
+              🚀 TuNutriLens estará disponible próximamente en las tiendas oficiales de aplicaciones.
+            </p>
 
             <div className="pt-2 text-xs text-[#2B2A23]">
               <span>¿Tienes preguntas? Escríbenos directamente a: </span>
@@ -282,6 +377,14 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
         </div>
 
       </div>
+
+      {/* Floating Feedback Toast for "Próximamente" */}
+      {showToast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-2xl bg-[#2B2A23] text-white border-2 border-emerald-400 shadow-2xl flex items-center gap-3 text-sm font-bold tracking-tight animate-bounce">
+          <Sparkles className="w-5 h-5 text-emerald-400 shrink-0" />
+          <span>¡Próximamente disponible en App Store y Google Play!</span>
+        </div>
+      )}
 
       {/* Subtle bottom note */}
       <div className="relative z-10 mt-6 text-center text-xs text-[#2B2A23]/60 font-sans">

@@ -36,9 +36,9 @@ export const COMPETITORS = [
 ];
 
 export const KEY_THESIS = {
-  title: 'Tesis Diferencial Clave (Datos Oficiales 2026)',
-  text: 'TuNutriLens es la única solución del mercado que combina Visión Artificial Triple (Plato + Súper + Nevera), rigor clínico basado en el Índice de Salud Mediterránea (ISM) y lucha activa contra el desperdicio con ahorro económico demostrable en euros.',
-  source: 'Informe y auditoría basada en datos contrastables del mercado 2026 • Estándares científicos oficiales BEDCA / EFSA / RGPD UE (Art. 9).'
+  title: 'Análisis Comparativo de Funcionalidades',
+  text: 'TuNutriLens integra en una sola aplicación el reconocimiento visual de platos cocinados, la lectura bromatológica de etiquetado y la detección de alimentos en nevera para la reducción del desperdicio alimentario doméstico.',
+  source: 'Análisis comparativo de funcionalidades públicas y modelos de servicio disponibles en el mercado (2026). Datos nutricionales basados en BEDCA, USDA y EFSA.'
 };
 
 export const MARKET_DIMENSIONS: DimensionAudit[] = [
@@ -140,7 +140,7 @@ export const MARKET_DIMENSIONS: DimensionAudit[] = [
         detail: 'Promueve el modelo IIFYM ("If It Fits Your Macros") donde lo único que importa es no pasarse del número, incentivando ultraprocesados light.'
       },
       yuka: {
-        verdict: 'NutriScore rígido con sesgos',
+        verdict: 'Algoritmo rígido con sesgos',
         detail: 'Penaliza alimentos grasos cardiosaludables tradicionales (como el jamón ibérico o ciertos quesos artesanos) por su alto contenido lipídico o calórico.'
       },
       calai: {
@@ -313,28 +313,28 @@ export const MARKET_DIMENSIONS: DimensionAudit[] = [
       calai: 4,
       myrealfood: 5
     },
-    marketProblem: 'Las grandes apps estadounidenses monetizan tus datos de salud: hábitos alimenticios, fluctuaciones de peso y rutinas se comparten con redes publicitarias y corredores de datos (data brokers).',
+    marketProblem: 'Muchas aplicaciones convencionales incluyen publicidad programática de terceros, rastreadores comerciales o políticas de privacidad bajo normativas extracomunitarias.',
     tunutrilensAdvantage: [
-      'Alojamiento en infraestructura con cumplimiento del Art. 9 del Reglamento General de Protección de Datos (RGPD UE 2016/679).',
-      'Sin anuncios invasivos ni pop-ups comerciales que entorpezcan la experiencia.',
-      'Control total: el usuario puede borrar o exportar su historial clínico en cualquier momento.'
+      'Alojamiento en infraestructura con cumplimiento del Reglamento General de Protección de Datos (RGPD UE 2016/679).',
+      'Experiencia de usuario limpia sin publicidad programática de terceros.',
+      'Control total: el usuario puede borrar o exportar sus datos de hábitos en cualquier momento.'
     ],
     rivalAnalysis: {
       myfitnesspal: {
-        verdict: 'Publicidad masiva y venta de datos',
-        detail: 'Monetiza intensamente con publicidad dirigida, cookies de rastreo masivo e historial de brechas de seguridad.'
+        verdict: 'Modelo con publicidad y rastreadores',
+        detail: 'Su versión gratuita incorpora publicidad de redes externas de anunciantes y políticas de compartición publicitaria estándar en EE.UU.'
       },
       yuka: {
         verdict: 'Independiente sin publicidad',
-        detail: 'Yuka es un referente positivo en no vender datos y no mostrar anuncios publicitarios.'
+        detail: 'Yuka mantiene un modelo de negocio independiente basado en suscripción sin venta de datos ni anuncios publicitarios.'
       },
       calai: {
         verdict: 'Jurisdicción estadounidense',
-        detail: 'Sujeta a legislación estadounidense sin las garantías del marco estricto europeo de datos de salud.'
+        detail: 'Compañía radicada en EE.UU. con términos de servicio sujetos principalmente a la normativa norteamericana.'
       },
       myrealfood: {
-        verdict: 'Uso comercial interno',
-        detail: 'Utiliza los datos de navegación y hábitos para recomendar y vender productos de su propia tienda online.'
+        verdict: 'Ecosistema comercial propio',
+        detail: 'Integra un catálogo comercial y recomendaciones vinculadas a productos de su propia plataforma y colaboradores.'
       }
     }
   },
