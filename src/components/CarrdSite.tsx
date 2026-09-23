@@ -27,7 +27,7 @@ interface CarrdSiteProps {
 }
 
 export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
-  const [showComparison, setShowComparison] = useState(false);
+  const [showComparison, setShowComparison] = useState(true);
   const [showReferences, setShowReferences] = useState(true);
   const [activeNotice, setActiveNotice] = useState<string | null>(null);
   const [showToast, setShowToast] = useState(false);
@@ -262,7 +262,7 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
             />
           </div>
 
-          {/* Toggleable Comparison Section: Auditoría Competitiva Oficial 2026 */}
+          {/* Toggleable Comparison Section: Comparativa de Funcionalidades 2026 */}
           <div className="space-y-4">
             <button
               type="button"
@@ -275,12 +275,12 @@ export const CarrdSite: React.FC<CarrdSiteProps> = ({ onOpenDownload }) => {
                 </span>
                 <span>
                   {showComparison 
-                    ? 'Ocultar auditoría comparativa con el mercado' 
+                    ? 'Ocultar comparativa con soluciones del mercado' 
                     : 'Ver comparativa: TuNutriLens™ frente a MyFitnessPal, Yuka, Cal AI y MyRealFood'}
                 </span>
               </div>
               <span className="shrink-0 px-2.5 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-xs font-black">
-                10/10 vs Mercado
+                Comparativa
               </span>
             </button>
 

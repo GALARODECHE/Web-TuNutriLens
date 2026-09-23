@@ -59,13 +59,13 @@ export const AppScreensShowcase: React.FC<AppScreensShowcaseProps> = ({ onOpenDo
       badge: 'Visor IA • Detección 2s',
       title: 'Escáner de Plato en Vivo',
       subtitle: 'Bowl Mediterráneo de Salmón (524 kcal • 38g Proteína)',
-      description: 'Reconoce comida real y platos caseros con 1 foto. Calcula volumen tridimensional, gramos exactos (340g), Calidad Nutricional A, NOVA 1 y ofrece el consejo clínico de Gala en 2 segundos.',
+      description: 'Reconoce comida real y platos caseros con 1 foto. Calcula volumen tridimensional, gramos exactos (340g), Calidad Nutricional A, NOVA 1 y ofrece consejos nutricionales en 2 segundos.',
       activeNavTab: 'escaner',
       keyHighlights: [
         'Detección instantánea: Salmón noruego, quinoa real, aguacate hass y semillas',
         'Pesaje óptico estimado en 340 gramos sin necesidad de báscula',
         'Desglose macro: 38g proteína, 45g hidratos, 19g grasas saludables, 8.4g fibra',
-        'Consejo de microbiota por Gala Rodríguez (Nutricionista IA)'
+        'Consejo de microbiota y densidad de nutrientes esenciales'
       ]
     },
     {
@@ -130,7 +130,7 @@ export const AppScreensShowcase: React.FC<AppScreensShowcaseProps> = ({ onOpenDo
     },
     {
       id: 'nevera',
-      tabLabel: '6. Nevera Residuo 0',
+      tabLabel: '6. Nevera- Residuo 0',
       badge: 'Ahorra hasta 80 €/mes',
       title: 'Nevera Residuo Cero con Visión IA',
       subtitle: 'Shakshuka de Calabacín y Huevo (385 kcal • 24g Proteína)',
@@ -160,8 +160,8 @@ export const AppScreensShowcase: React.FC<AppScreensShowcaseProps> = ({ onOpenDo
     },
     {
       id: 'nutricoach',
-      tabLabel: '8. Perfil & Metabolismo',
-      badge: 'Gala Nutrición Clínica',
+      tabLabel: '8. Perfil y Metabolismo',
+      badge: 'Perfil Nutricional',
       title: 'Perfil Metabólico & Objetivos',
       subtitle: 'BMR 1.502 kcal • Gasto Total TDEE 2.328 kcal / día',
       description: 'Cálculo de metabolismo basal mediante la ecuación médica de Harris-Benedict. Pautas y seguimiento metabólico según tu estilo de vida y objetivos clínicos.',
@@ -201,7 +201,7 @@ export const AppScreensShowcase: React.FC<AppScreensShowcaseProps> = ({ onOpenDo
       </div>
 
       {/* 8-Tab Screen Selector */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
         {screens.map((screen) => {
           const isActive = screen.id === activeScreen;
           return (
@@ -209,21 +209,21 @@ export const AppScreensShowcase: React.FC<AppScreensShowcaseProps> = ({ onOpenDo
               key={screen.id}
               type="button"
               onClick={() => setActiveScreen(screen.id)}
-              className={`p-2.5 rounded-xl border-2 text-left transition-all cursor-pointer flex flex-col justify-between ${
+              className={`p-3 rounded-xl border-2 text-left transition-all cursor-pointer flex flex-col justify-between min-h-[82px] ${
                 isActive
                   ? 'bg-white border-[#2B2A23] shadow-[3px_3px_0px_#2B2A23] scale-[1.02] ring-2 ring-[#096121]/30'
-                  : 'bg-white/75 hover:bg-white border-[#2B2A23]/30 hover:border-[#2B2A23]'
+                  : 'bg-white/80 hover:bg-white border-[#2B2A23]/30 hover:border-[#2B2A23]'
               }`}
             >
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-[10px] font-black uppercase text-[#096121] tracking-wider">
+              <div className="flex items-center justify-between gap-1 mb-1.5 w-full">
+                <span className="text-[10px] font-black uppercase text-[#096121] tracking-wider leading-tight">
                   {screen.badge.split('•')[0]}
                 </span>
                 {isActive && (
-                  <span className="w-2 h-2 rounded-full bg-[#096121]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#096121] shrink-0" />
                 )}
               </div>
-              <span className="text-xs font-bold text-[#2B2A23] line-clamp-1">
+              <span className="text-xs sm:text-[13px] font-bold text-[#2B2A23] leading-snug">
                 {screen.tabLabel}
               </span>
             </button>
@@ -378,7 +378,7 @@ export const AppScreensShowcase: React.FC<AppScreensShowcaseProps> = ({ onOpenDo
                       </div>
 
                       <div className="p-2 rounded-lg bg-emerald-50 text-[9px] text-emerald-900 border border-emerald-200 leading-snug">
-                        <strong>Consejo Gala (Nutricionista IA):</strong> Excelente densidad de Omega-3 marino y fibra prebiótica para tu microbiota.
+                        <strong>Consejo Nutricional:</strong> Excelente densidad de Omega-3 marino y fibra prebiótica para tu microbiota.
                       </div>
 
                       <button 
@@ -908,15 +908,15 @@ export const AppScreensShowcase: React.FC<AppScreensShowcaseProps> = ({ onOpenDo
                       </div>
                     </div>
 
-                    {/* Gala Card */}
+                    {/* Perfil Card */}
                     <div className="p-3 rounded-xl bg-white border border-stone-200 shadow-xs space-y-2 text-[9px]">
                       <div className="flex items-center gap-2">
                         <div className="w-7 h-7 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center font-bold text-emerald-800 text-xs">
-                          👩‍⚕️
+                          📊
                         </div>
                         <div>
-                          <strong className="text-[#2B2A23] block">Gala (Nutricionista Clínica IA 24/7)</strong>
-                          <span className="text-[8px] text-stone-500">Basada en evidencia pública (OMS, EFSA, BEDCA)</span>
+                          <strong className="text-[#2B2A23] block">Perfil Nutricional Personalizado</strong>
+                          <span className="text-[8px] text-stone-500">Basado en evidencia pública (OMS, EFSA, BEDCA)</span>
                         </div>
                       </div>
 
